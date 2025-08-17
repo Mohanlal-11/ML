@@ -18,10 +18,9 @@ parser = argparse.ArgumentParser(description="Parser for taking the required arg
 parser.add_argument("-e", "--epochs", type=int, default=20, help="Argument for how many times there will be forward propagation.")
 parser.add_argument("-b", "--batch", type=int, default=32, help="Argument for how many samples will there be in one chunk of data during training")
 parser.add_argument("-d", "--dir", type=str, default="./Yolov3_weights", help="Argumnet fot where we want to save our trained weights.")
-parser.add_argument("-n", "--name", type=str, default="wts.pt", help="Argument for the name of trained weights.")
-parser.add_argument("-i", "--input_size", type=int, default=256, help="Argument for the desired input size to model.")
-parser.add_argument("-p", "--train_path", type=str, default="./coco_train", help="Argument for the training dataset path")
-parser.add_argument("-p", "--valid_path", type=str, default="./coco_valid", help="Argument for the valid dataset path")
+parser.add_argument("-n", "--name", type=str, default="Yolov3_weights_coco_2017.pt", help="Argument for the name of trained weights.")
+parser.add_argument("-i", "--input_size", type=int, default=608, help="Argument for the desired input size to model.")
+parser.add_argument("-p", "--data_path", type=str, default="./coco_train", help="Argument for the training dataset path")
 parser.add_argument("-y", "--save_bool", type=bool, default=False, help="Argument for whether the weights are saving or not.")
 
 arg = parser.parse_args()
@@ -86,53 +85,53 @@ def validation_step(model:torch.nn.Module,
         )
         valid_loss += loss.item()
 
-      # large_scale_prediction = transform_predicted_txtytwth(bboxes=large_scale_prediction, grid_size=grid_size, device=device, scale="large")
-      # medium_scale_prediction = transform_predicted_txtytwth(bboxes=medium_scale_prediction, grid_size=grid_size, device=device, scale="medium")
-      # small_scale_prediction = transform_predicted_txtytwth(bboxes=small_scale_prediction, grid_size=grid_size, device=device, scale="small")
+      large_scale_prediction = transform_predicted_txtytwth(bboxes=large_scale_prediction, grid_size=grid_size, device=device, scale="large")
+      medium_scale_prediction = transform_predicted_txtytwth(bboxes=medium_scale_prediction, grid_size=grid_size, device=device, scale="medium")
+      small_scale_prediction = transform_predicted_txtytwth(bboxes=small_scale_prediction, grid_size=grid_size, device=device, scale="small")
 
-      # label[0] = transform_predicted_txtytwth(bboxes=label[0], grid_size=grid_size, device=device, scale="large")
-      # label[1] = transform_predicted_txtytwth(bboxes=label[1], grid_size=grid_size, device=device, scale="medium")
-      # label[2] = transform_predicted_txtytwth(bboxes=label[2], grid_size=grid_size, device=device, scale="small")
+      label[0] = transform_predicted_txtytwth(bboxes=label[0], grid_size=grid_size, device=device, scale="large")
+      label[1] = transform_predicted_txtytwth(bboxes=label[1], grid_size=grid_size, device=device, scale="medium")
+      label[2] = transform_predicted_txtytwth(bboxes=label[2], grid_size=grid_size, device=device, scale="small")
 
-      # large_scale_prediction = large_scale_prediction.flatten(0,3)
-      # medium_scale_prediction = medium_scale_prediction.flatten(0,3)
-      # small_scale_prediction = small_scale_prediction.flatten(0,3)
+      large_scale_prediction = large_scale_prediction.flatten(0,3)
+      medium_scale_prediction = medium_scale_prediction.flatten(0,3)
+      small_scale_prediction = small_scale_prediction.flatten(0,3)
 
-      # selected_large_scale = nms(pred_bboxes=large_scale_prediction.tolist(),prob_threshold=0.60, iou_threshold=0.3, format="center")
-      # selected_medium_scale = nms(pred_bboxes=medium_scale_prediction.tolist(), prob_threshold=0.60, iou_threshold=0.3, format="center")
-      # selected_small_scale = nms(pred_bboxes=small_scale_prediction.tolist(), prob_threshold=0.60, iou_threshold=0.3, format="center")
+      selected_large_scale = nms(pred_bboxes=large_scale_prediction.tolist(),prob_threshold=0.60, iou_threshold=0.3, format="center")
+      selected_medium_scale = nms(pred_bboxes=medium_scale_prediction.tolist(), prob_threshold=0.60, iou_threshold=0.3, format="center")
+      selected_small_scale = nms(pred_bboxes=small_scale_prediction.tolist(), prob_threshold=0.60, iou_threshold=0.3, format="center")
 
-      # label[0] = label[0].flatten(0,3)
-      # label[1] = label[1].flatten(0,3)
-      # label[2] = label[2].flatten(0,3)
+      label[0] = label[0].flatten(0,3)
+      label[1] = label[1].flatten(0,3)
+      label[2] = label[2].flatten(0,3)
 
-      # label[0] = label[0].tolist()
-      # label[1] = label[1].tolist()
-      # label[2] = label[2].tolist()
+      label[0] = label[0].tolist()
+      label[1] = label[1].tolist()
+      label[2] = label[2].tolist()
 
-      # map_large = mAP(pred_bboxes=selected_large_scale,
-      #                 ground_truth_bboxes=label[0],
-      #                 iou_threshold=0.65,
-      #                 format="center",
-      #                 num_classes=num_class)
-      # if best_map_large < map_large:
-      #   best_map_large = map_large
+      map_large = mAP(pred_bboxes=selected_large_scale,
+                      ground_truth_bboxes=label[0],
+                      iou_threshold=0.65,
+                      format="center",
+                      num_classes=num_class)
+      if best_map_large < map_large:
+        best_map_large = map_large
 
-      # map_medium = mAP(pred_bboxes=selected_medium_scale,
-      #                 ground_truth_bboxes=label[1],
-      #                 iou_threshold=0.65,
-      #                 format="center",
-      #                 num_classes=num_class)
-      # if best_map_medium < map_medium:
-      #   best_map_medium = map_medium
+      map_medium = mAP(pred_bboxes=selected_medium_scale,
+                      ground_truth_bboxes=label[1],
+                      iou_threshold=0.65,
+                      format="center",
+                      num_classes=num_class)
+      if best_map_medium < map_medium:
+        best_map_medium = map_medium
 
-      # map_small = mAP(pred_bboxes=selected_small_scale,
-      #                 ground_truth_bboxes=label[2],
-      #                 iou_threshold=0.65,
-      #                 format="center",
-      #                 num_classes=num_class)
-      # if best_map_small < map_small:
-      #   best_map_small = map_small        #--------------> These commented lines are for the calculation of mean average precision of the yolov3 
+      map_small = mAP(pred_bboxes=selected_small_scale,
+                      ground_truth_bboxes=label[2],
+                      iou_threshold=0.65,
+                      format="center",
+                      num_classes=num_class)
+      if best_map_small < map_small:
+        best_map_small = map_small        #--------------> These commented lines are for the calculation of mean average precision of the yolov3 
     valid_loss /= (3*len(valid_dataloader))
   return valid_loss, best_map_large, best_map_medium, best_map_small
 
@@ -201,9 +200,9 @@ def main():
 
   grid_size = [arg.input_size//32, arg.input_size//16, arg.input_size//8]
 
-  train_dataset_imgfolder = CocoImageFolder(root=arg.train_path, image_size=arg.input_size, grid_size=grid_size)
+  train_dataset_imgfolder = CocoImageFolder(root=arg.data_path, image_size=arg.input_size, grid_size=grid_size)
 
-  valid_dataset_imgfolder = CocoImageFolder(root=arg.valid_path, image_size=arg.input_size, grid_size=grid_size)
+  valid_dataset_imgfolder = CocoImageFolder(root=arg.data_path, image_size=arg.input_size, grid_size=grid_size)
 
   train_dataloader = dataloader_func(dataset=train_dataset_imgfolder,
                                      batch_size=arg.batch,

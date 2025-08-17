@@ -1,7 +1,7 @@
 import torch
 from torch import nn
-from darknet_53 import Darknet53
-from conv_YOLOv3 import ConvLayer as convlayer
+from yolov3.darknet_53 import Darknet53
+from yolov3.conv_YOLOv3 import ConvLayer as convlayer
 
 class YOLOv3(nn.Module):
   """
@@ -78,38 +78,7 @@ class YOLOv3(nn.Module):
     layer3_out = self.layer3(combination2)
     stage3_out = self.stage3(layer3_out)
 
-    stage1_out = stage1_out.contiguous().permute(0,2,3,1).view(batch_size, self.large_scale_grid_size, self.large_scale_grid_size, self.num_anchors, self.num_coordinate)
-    
-    stage1_x_center = stage1_out[..., 0:1]
-    stage1_y_center = stage1_out[..., 1:2]
-    stage1_width = stage1_out[..., 2:3]
-    stage1_height = stage1_out[..., 3:4]
-    stage1_confidence = stage1_out[..., 4:5]
-    stage1_class = stage1_out[..., 5:]
-    large_scale = torch.cat((stage1_x_center, stage1_y_center, stage1_width, stage1_height, stage1_confidence, stage1_class), dim=-1)
-
-    stage2_out = stage2_out.contiguous().permute(0,2,3,1).view(batch_size, self.medium_scale_grid_size, self.medium_scale_grid_size, self.num_anchors, self.num_coordinate)
-    
-    stage2_x_center = stage2_out[..., 0:1]
-    stage2_y_center = stage2_out[..., 1:2]
-    stage2_width = stage2_out[..., 2:3]
-    stage2_height = stage2_out[..., 3:4]
-    stage2_confidence = stage2_out[..., 4:5]
-    stage2_class = stage2_out[..., 5:]
-    medium_scale = torch.cat((stage2_x_center, stage2_y_center, stage2_width, stage2_height, stage2_confidence, stage2_class), dim=-1)
-
-    stage3_out = stage3_out.contiguous().permute(0,2,3,1).view(batch_size, self.small_scale_grid_size, self.small_scale_grid_size, self.num_anchors, self.num_coordinate)
-    
-    stage3_x_center = stage3_out[..., 0:1]
-    stage3_y_center = stage3_out[..., 1:2]
-    stage3_width = stage3_out[..., 2:3]
-    stage3_height = stage3_out[..., 3:4]
-    stage3_confidence = stage3_out[..., 4:5]
-    stage3_class = stage3_out[..., 5:]
-    small_scale = torch.cat((stage3_x_center, stage3_y_center, stage3_width, stage3_height, stage3_confidence, stage3_class), dim=-1)
-    # print(f"shapes: {large_scale.shape}, {medium_scale.shape}, {small_scale.shape}")
-    return large_scale, medium_scale, small_scale
-    # return stage1_out, stage2_out, stage3_out
+    return stage1_out, stage2_out, stage3_out
 
 if __name__ == "__main__":
   anchors_list = [

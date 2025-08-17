@@ -1,4 +1,8 @@
 import torch
+import os
+import sys
+parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+sys.path.append(parent_dir)
 from yolov3_model import YOLOv3
 from utils import calculate_iou, nms, transform_predicted_txtytwth
 from PIL import Image
@@ -6,20 +10,20 @@ import matplotlib.pyplot as plt
 import matplotlib.patches as patches
 import torchvision
 from torchvision import transforms
-import os
 import math
 import cv2 as cv
 from pathlib import Path
 import argparse
-import time
+from tqdm import tqdm
+import pickle
 
 parser = argparse.ArgumentParser(description="This is for the arguments required for the inference of yolov3.")
-parser.add_argument("-t", "--path", type=str, default="./imgs", help="Argument for the path to the directory of testing images.")
-parser.add_argument("-s", "--save", type=str, default="./detected", help="Argument for the path to directory where we want to save out detected results.")
+parser.add_argument("-t", "--path", type=str, default="yolov3/img", help="Argument for the path to the directory of testing images.")
+parser.add_argument("-s", "--save", type=str, default="yolov3/detected", help="Argument for the path to directory where we want to save out detected results.")
 parser.add_argument("-n", "--nms_conf", type=float, default=0.5, help="Argument to provide confidence threshold to perform nms")
 parser.add_argument("-p", "--plot_conf", type=float, default=0.70, help="Argument to plot the predictions which have given confidence.")
 parser.add_argument("-i", "--input_size", type=int, default=608, help="Argument for the size of input image to model.")
-parser.add_argument("-w", "--wts", type=str, default="./yolov3_wts_reference.pt", help="Argument for the path to trained weights.")
+parser.add_argument("-w", "--wts", type=str, default="weights/yolov3_wts_reference.pt", help="Argument for the path to trained weights.")
 
 arg = parser.parse_args()
 
@@ -63,41 +67,61 @@ def visualize_prediction(
   transformed_image = transform(image)
   input_image = transformed_image.unsqueeze(dim=0)
   batch = input_image.shape[0]
-  num_anchors = 3
-  num_classes = 80
-  start_time = time.time()
+  num_anchors = len(anchors)
+  num_coordinate = 5+len(CLASSES)
+  save_dir = "yolov3/detected"
+  os.makedirs(save_dir, exist_ok=True)
   model.eval()
   with torch.inference_mode():
-    out = model(input_image)
-  device = out[0].device
-  l = out[0]
-  m = out[1]
-  s = out[2]
-  # l = l.contiguous().view(batch, 19, 19, num_anchors, 5+num_classes)
-  # m = m.contiguous().view(batch, 38, 38, num_anchors, 5+num_classes)
-  # s =  s.contiguous().view(batch, 76, 76, num_anchors, 5+num_classes)
-  pred_bboxes_large = transform_predicted_txtytwth(bboxes=l, grid_size=size, device=device, scale="large")
+    stage1_out, stage2_out, stage3_out = model(input_image)
+    # with open(f'yolov3_model_preds_small.pkl', 'wb') as f:
+    #   pickle.dump(stage3_out.cpu().numpy(), f)
+    # print(f'output shapes: {stage1_out.shape, stage2_out.shape, stage3_out.shape}')
+    stage1_out = stage1_out.permute(0,2,3,1).view(batch, size[0], size[0], num_anchors, num_coordinate)
+    stage1_confidence = stage1_out[..., 4:5]
+    stage1_x_center = stage1_out[..., 0:1]
+    stage1_y_center = stage1_out[..., 1:2]
+    stage1_width = stage1_out[..., 2:3]
+    stage1_height = stage1_out[..., 3:4]
+    stage1_class = stage1_out[..., 5:]
+    large_scale_prediction = torch.cat((stage1_x_center, stage1_y_center, stage1_width, stage1_height, stage1_confidence, stage1_class), dim=-1)
+
+    stage2_out = stage2_out.permute(0,2,3,1).view(batch, size[1], size[1], num_anchors, num_coordinate)
+    stage2_confidence = stage2_out[..., 4:5]
+    stage2_x_center = stage2_out[..., 0:1]
+    stage2_y_center = stage2_out[..., 1:2]
+    stage2_width = stage2_out[..., 2:3]
+    stage2_height = stage2_out[..., 3:4]
+    stage2_class = stage2_out[..., 5:]
+    medium_scale_prediction = torch.cat((stage2_x_center, stage2_y_center, stage2_width, stage2_height, stage2_confidence, stage2_class), dim=-1)
+
+    stage3_out = stage3_out.permute(0,2,3,1).view(batch, size[2], size[2], num_anchors, num_coordinate)
+    stage3_confidence = stage3_out[..., 4:5]
+    stage3_x_center = stage3_out[..., 0:1]
+    stage3_y_center = stage3_out[..., 1:2]
+    stage3_width = stage3_out[..., 2:3]
+    stage3_height = stage3_out[..., 3:4]
+    stage3_class = stage3_out[..., 5:]
+    small_scale_prediction = torch.cat((stage3_x_center, stage3_y_center, stage3_width, stage3_height, stage3_confidence, stage3_class), dim=-1)
+  device = stage1_out.device
+  
+  pred_bboxes_large = transform_predicted_txtytwth(bboxes=large_scale_prediction, grid_size=size, device=device, scale="large")
   pred_bboxes_large = pred_bboxes_large.flatten(0,3)
   pred_bboxes_large = pred_bboxes_large.tolist()
   filtered_bboxes_large = nms(pred_bboxes=pred_bboxes_large, prob_threshold=arg.nms_conf, iou_threshold=iou_threshold, format="center")
 
-  pred_bboxes_medium = transform_predicted_txtytwth(bboxes=m, grid_size=size, device=device, scale="medium")
+  pred_bboxes_medium = transform_predicted_txtytwth(bboxes=medium_scale_prediction, grid_size=size, device=device, scale="medium")
   pred_bboxes_medium = pred_bboxes_medium.flatten(0,3)
   pred_bboxes_medium = pred_bboxes_medium.tolist()
   filtered_bboxes_medium = nms(pred_bboxes=pred_bboxes_medium, prob_threshold=arg.nms_conf, iou_threshold=iou_threshold, format="center")
 
-  pred_bboxes_small = transform_predicted_txtytwth(bboxes=s, grid_size=size, device=device, scale="small")
+  pred_bboxes_small = transform_predicted_txtytwth(bboxes=small_scale_prediction, grid_size=size, device=device, scale="small")
   pred_bboxes_small = pred_bboxes_small.flatten(0,3)
   pred_bboxes_small = pred_bboxes_small.tolist()
   filtered_bboxes_small = nms(pred_bboxes=pred_bboxes_small, prob_threshold=arg.nms_conf, iou_threshold=iou_threshold, format="center")
 
   all_predictions = [filtered_bboxes_large, filtered_bboxes_medium, filtered_bboxes_small]
-  # for box in pred_bboxes_large:
-  #   print(box)
-  # figure, axis = plt.subplots(1, figsize=(12,8))
-  # # axis.imshow(transformed_image.permute(1,2,0))
-  # axis.imshow(image)
-  # print(f"in test: {l.shape}, {size[0]}, {transformed_image.shape}")
+  
   for idx, scale_box in enumerate(all_predictions):
     for box in scale_box:
       # print(box)
@@ -119,37 +143,17 @@ def visualize_prediction(
       y_max = max(0, y_max)
       if confidence>arg.plot_conf:
         # print([x_c, y_c, w, h, confidence])
-        # print(image_ori.shape)
         image_ori = cv.rectangle(image_ori, (int(x_min), int(y_min)), (int(x_max), int(y_max)), (255,0,0), 3)
         image_ori = cv.putText(image_ori, CLASSES[label], (int((x_min+x_max)/2), int(y_min)), cv.FONT_HERSHEY_SIMPLEX, 1, (0,255,0), 1, cv.LINE_AA)
-    cv.imwrite(f"./detected/{image_path}", image_ori)
-    # print(f"The prediction on given image {image_path} is saved to detected/{image_path}")
-  #       print([confidence, x_c, y_c, w, h])
-  #       # print(f"The given image is: {os.path.basename(image_path)} and the predictions on this image is: {CLASSES[label]}")
-  #       rect = patches.Rectangle((x_min, y_min), w, h, linewidth=2, edgecolor='r', facecolor='none')
-  #       axis.add_patch(rect)
-
-  #       axis.text(x_min + 10, y_min, CLASSES[label], color='red', fontsize=10, backgroundcolor="white")
-  # plt.axis(False)
-  # dir = Path(arg.save)
-  # dir.mkdir(parents=True, exist_ok=True)
-  # save_path = os.path.join(dir, os.path.basename(image_path))
-  # plt.savefig(save_path)
-  # plt.close()
-  end_time = time.time()
-  total_taken_time = end_time-start_time
-  # print("====================================================================================================")
-  print(f"The total time taken by the model to make a prediction on image {os.path.basename(image_path)} is : {total_taken_time}Sec.")
-  # print("====================================================================================================")
-  # print(f"[INFO] The prediction from yolov3 trained from scratch is plotted successfully........!")
-
+    cv.imwrite(f"{save_dir}/{image_path}", image_ori)
+    
 def main(image_path:list, weight_path=arg.wts):
   """This function prepares the image paths and yolov3 model."""
   anchors_list = [
             [116,90, 156,198, 373,326],
             [30,61, 62,45, 59,119],
             [10,13, 16,30, 33,23]]
-  iou_threshold = 0.3
+  iou_threshold = 0.4
   grid_size = [arg.input_size//32, arg.input_size//16, arg.input_size//8]
   num_class = 80
 
@@ -166,7 +170,7 @@ def main(image_path:list, weight_path=arg.wts):
   model.load_state_dict(state_dict=new_wts, strict=True)
   print("Weight loaded successfully!!")
 
-  for i in range(len(image_path)):
+  for i in tqdm(range(len(image_path)), desc="Running Inference"):
     visualize_prediction(model=model,
                     image_path=image_path[i],
                     transform=transformation,

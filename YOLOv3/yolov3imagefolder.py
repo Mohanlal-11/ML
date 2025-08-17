@@ -17,7 +17,7 @@ class CocoImageFolder(Dataset):
     grid_size(list): Size of feature maps from where the model makes predictions.
     transform : transformation function that performs transfromation on input images such as resizing, augmentation.
   """
-  def __init__(self, root:str, image_size:int, grid_size:list=[8,16,32], transform=None):
+  def __init__(self, root:str, image_size:int, grid_size:list=[32,16,8], transform=None):
     super(CocoImageFolder, self).__init__()
     self.image_size = image_size
     self.anchors = [
@@ -102,7 +102,7 @@ class CocoImageFolder(Dataset):
         w = scale * w
         h = scale * h
 
-        box_coordinates = torch.tensor([1, x_center, y_center, w, h])
+        box_coordinates = torch.tensor([x_center, y_center, w, h, 1])
 
         ious = []
         for anchor in self.anchors[scale_index][:]:

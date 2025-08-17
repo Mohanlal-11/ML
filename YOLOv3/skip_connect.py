@@ -1,6 +1,6 @@
 import torch 
 from torch import nn
-from conv_YOLOv3 import ConvLayer as convlayer
+from yolov3.conv_YOLOv3 import ConvLayer as convlayer
 
 class Residual_Block(nn.Module):
   """
