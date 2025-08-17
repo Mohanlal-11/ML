@@ -50,3 +50,4 @@ python3 train_fn.py
     * https://github.com/pjreddie/darknet/blob/master/cfg/yolov3.cfg
     * https://arxiv.org/abs/1804.02767
 
+# If you want to deploy this object detection model in **Kria KR260** FPGA board, then follow this [README.md](Deployment/README.md)

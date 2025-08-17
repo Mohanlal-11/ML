@@ -1,0 +1,908 @@
+digraph YOLOv3 {
+	input_0 [label="type:nndct_input
+name:YOLOv3::input_0
+assigned device:user
+out shape:[[1, 608, 608, 3]]" color=black]
+	"YOLOv3/Darknet53[backbone]/ConvLayer[conv1]/Sequential[conv]/Conv2d[0]/input.3" [label="type:nndct_conv2d
+name:YOLOv3::YOLOv3/Darknet53[backbone]/ConvLayer[conv1]/Sequential[conv]/Conv2d[0]/input.3
+assigned device:dpu
+out shape:[[1, 608, 608, 32]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/ConvLayer[conv1]/Sequential[conv]/LeakyReLU[2]/input.7" [label="type:nndct_leaky_relu
+name:YOLOv3::YOLOv3/Darknet53[backbone]/ConvLayer[conv1]/Sequential[conv]/LeakyReLU[2]/input.7
+assigned device:dpu
+out shape:[[1, 608, 608, 32]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv2]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.9" [label="type:nndct_conv2d
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv2]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.9
+assigned device:dpu
+out shape:[[1, 304, 304, 64]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv2]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.13" [label="type:nndct_leaky_relu
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv2]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.13
+assigned device:dpu
+out shape:[[1, 304, 304, 64]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv2]/Residual_Block[1]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.15" [label="type:nndct_conv2d
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv2]/Residual_Block[1]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.15
+assigned device:dpu
+out shape:[[1, 304, 304, 32]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv2]/Residual_Block[1]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.19" [label="type:nndct_leaky_relu
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv2]/Residual_Block[1]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.19
+assigned device:dpu
+out shape:[[1, 304, 304, 32]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv2]/Residual_Block[1]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.21" [label="type:nndct_conv2d
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv2]/Residual_Block[1]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.21
+assigned device:dpu
+out shape:[[1, 304, 304, 64]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv2]/Residual_Block[1]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/15862" [label="type:nndct_leaky_relu
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv2]/Residual_Block[1]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/15862
+assigned device:dpu
+out shape:[[1, 304, 304, 64]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv2]/Residual_Block[1]/input.25" [label="type:nndct_elemwise_add
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv2]/Residual_Block[1]/input.25
+assigned device:dpu
+out shape:[[1, 304, 304, 64]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv3]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.27" [label="type:nndct_conv2d
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv3]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.27
+assigned device:dpu
+out shape:[[1, 152, 152, 128]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv3]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.31" [label="type:nndct_leaky_relu
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv3]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.31
+assigned device:dpu
+out shape:[[1, 152, 152, 128]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv3]/Residual_Block[1]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.33" [label="type:nndct_conv2d
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv3]/Residual_Block[1]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.33
+assigned device:dpu
+out shape:[[1, 152, 152, 64]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv3]/Residual_Block[1]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.37" [label="type:nndct_leaky_relu
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv3]/Residual_Block[1]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.37
+assigned device:dpu
+out shape:[[1, 152, 152, 64]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv3]/Residual_Block[1]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.39" [label="type:nndct_conv2d
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv3]/Residual_Block[1]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.39
+assigned device:dpu
+out shape:[[1, 152, 152, 128]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv3]/Residual_Block[1]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/15945" [label="type:nndct_leaky_relu
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv3]/Residual_Block[1]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/15945
+assigned device:dpu
+out shape:[[1, 152, 152, 128]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv3]/Residual_Block[1]/input.43" [label="type:nndct_elemwise_add
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv3]/Residual_Block[1]/input.43
+assigned device:dpu
+out shape:[[1, 152, 152, 128]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv3]/Residual_Block[2]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.45" [label="type:nndct_conv2d
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv3]/Residual_Block[2]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.45
+assigned device:dpu
+out shape:[[1, 152, 152, 64]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv3]/Residual_Block[2]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.49" [label="type:nndct_leaky_relu
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv3]/Residual_Block[2]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.49
+assigned device:dpu
+out shape:[[1, 152, 152, 64]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv3]/Residual_Block[2]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.51" [label="type:nndct_conv2d
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv3]/Residual_Block[2]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.51
+assigned device:dpu
+out shape:[[1, 152, 152, 128]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv3]/Residual_Block[2]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/16001" [label="type:nndct_leaky_relu
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv3]/Residual_Block[2]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/16001
+assigned device:dpu
+out shape:[[1, 152, 152, 128]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv3]/Residual_Block[2]/input.55" [label="type:nndct_elemwise_add
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv3]/Residual_Block[2]/input.55
+assigned device:dpu
+out shape:[[1, 152, 152, 128]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv4]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.57" [label="type:nndct_conv2d
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv4]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.57
+assigned device:dpu
+out shape:[[1, 76, 76, 256]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv4]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.61" [label="type:nndct_leaky_relu
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv4]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.61
+assigned device:dpu
+out shape:[[1, 76, 76, 256]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[1]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.63" [label="type:nndct_conv2d
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[1]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.63
+assigned device:dpu
+out shape:[[1, 76, 76, 128]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[1]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.67" [label="type:nndct_leaky_relu
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[1]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.67
+assigned device:dpu
+out shape:[[1, 76, 76, 128]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[1]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.69" [label="type:nndct_conv2d
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[1]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.69
+assigned device:dpu
+out shape:[[1, 76, 76, 256]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[1]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/16084" [label="type:nndct_leaky_relu
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[1]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/16084
+assigned device:dpu
+out shape:[[1, 76, 76, 256]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[1]/input.73" [label="type:nndct_elemwise_add
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[1]/input.73
+assigned device:dpu
+out shape:[[1, 76, 76, 256]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[2]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.75" [label="type:nndct_conv2d
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[2]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.75
+assigned device:dpu
+out shape:[[1, 76, 76, 128]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[2]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.79" [label="type:nndct_leaky_relu
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[2]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.79
+assigned device:dpu
+out shape:[[1, 76, 76, 128]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[2]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.81" [label="type:nndct_conv2d
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[2]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.81
+assigned device:dpu
+out shape:[[1, 76, 76, 256]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[2]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/16140" [label="type:nndct_leaky_relu
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[2]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/16140
+assigned device:dpu
+out shape:[[1, 76, 76, 256]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[2]/input.85" [label="type:nndct_elemwise_add
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[2]/input.85
+assigned device:dpu
+out shape:[[1, 76, 76, 256]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[3]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.87" [label="type:nndct_conv2d
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[3]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.87
+assigned device:dpu
+out shape:[[1, 76, 76, 128]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[3]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.91" [label="type:nndct_leaky_relu
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[3]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.91
+assigned device:dpu
+out shape:[[1, 76, 76, 128]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[3]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.93" [label="type:nndct_conv2d
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[3]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.93
+assigned device:dpu
+out shape:[[1, 76, 76, 256]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[3]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/16196" [label="type:nndct_leaky_relu
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[3]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/16196
+assigned device:dpu
+out shape:[[1, 76, 76, 256]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[3]/input.97" [label="type:nndct_elemwise_add
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[3]/input.97
+assigned device:dpu
+out shape:[[1, 76, 76, 256]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[4]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.99" [label="type:nndct_conv2d
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[4]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.99
+assigned device:dpu
+out shape:[[1, 76, 76, 128]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[4]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.103" [label="type:nndct_leaky_relu
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[4]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.103
+assigned device:dpu
+out shape:[[1, 76, 76, 128]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[4]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.105" [label="type:nndct_conv2d
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[4]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.105
+assigned device:dpu
+out shape:[[1, 76, 76, 256]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[4]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/16252" [label="type:nndct_leaky_relu
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[4]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/16252
+assigned device:dpu
+out shape:[[1, 76, 76, 256]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[4]/input.109" [label="type:nndct_elemwise_add
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[4]/input.109
+assigned device:dpu
+out shape:[[1, 76, 76, 256]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[5]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.111" [label="type:nndct_conv2d
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[5]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.111
+assigned device:dpu
+out shape:[[1, 76, 76, 128]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[5]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.115" [label="type:nndct_leaky_relu
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[5]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.115
+assigned device:dpu
+out shape:[[1, 76, 76, 128]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[5]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.117" [label="type:nndct_conv2d
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[5]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.117
+assigned device:dpu
+out shape:[[1, 76, 76, 256]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[5]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/16308" [label="type:nndct_leaky_relu
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[5]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/16308
+assigned device:dpu
+out shape:[[1, 76, 76, 256]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[5]/input.121" [label="type:nndct_elemwise_add
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[5]/input.121
+assigned device:dpu
+out shape:[[1, 76, 76, 256]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[6]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.123" [label="type:nndct_conv2d
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[6]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.123
+assigned device:dpu
+out shape:[[1, 76, 76, 128]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[6]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.127" [label="type:nndct_leaky_relu
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[6]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.127
+assigned device:dpu
+out shape:[[1, 76, 76, 128]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[6]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.129" [label="type:nndct_conv2d
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[6]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.129
+assigned device:dpu
+out shape:[[1, 76, 76, 256]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[6]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/16364" [label="type:nndct_leaky_relu
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[6]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/16364
+assigned device:dpu
+out shape:[[1, 76, 76, 256]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[6]/input.133" [label="type:nndct_elemwise_add
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[6]/input.133
+assigned device:dpu
+out shape:[[1, 76, 76, 256]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[7]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.135" [label="type:nndct_conv2d
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[7]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.135
+assigned device:dpu
+out shape:[[1, 76, 76, 128]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[7]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.139" [label="type:nndct_leaky_relu
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[7]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.139
+assigned device:dpu
+out shape:[[1, 76, 76, 128]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[7]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.141" [label="type:nndct_conv2d
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[7]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.141
+assigned device:dpu
+out shape:[[1, 76, 76, 256]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[7]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/16420" [label="type:nndct_leaky_relu
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[7]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/16420
+assigned device:dpu
+out shape:[[1, 76, 76, 256]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[7]/input.145" [label="type:nndct_elemwise_add
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[7]/input.145
+assigned device:dpu
+out shape:[[1, 76, 76, 256]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[8]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.147" [label="type:nndct_conv2d
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[8]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.147
+assigned device:dpu
+out shape:[[1, 76, 76, 128]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[8]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.151" [label="type:nndct_leaky_relu
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[8]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.151
+assigned device:dpu
+out shape:[[1, 76, 76, 128]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[8]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.153" [label="type:nndct_conv2d
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[8]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.153
+assigned device:dpu
+out shape:[[1, 76, 76, 256]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[8]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/16476" [label="type:nndct_leaky_relu
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[8]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/16476
+assigned device:dpu
+out shape:[[1, 76, 76, 256]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[8]/input.157" [label="type:nndct_elemwise_add
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[8]/input.157
+assigned device:dpu
+out shape:[[1, 76, 76, 256]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv5]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.159" [label="type:nndct_conv2d
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv5]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.159
+assigned device:dpu
+out shape:[[1, 38, 38, 512]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv5]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.163" [label="type:nndct_leaky_relu
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv5]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.163
+assigned device:dpu
+out shape:[[1, 38, 38, 512]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[1]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.165" [label="type:nndct_conv2d
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[1]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.165
+assigned device:dpu
+out shape:[[1, 38, 38, 256]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[1]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.169" [label="type:nndct_leaky_relu
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[1]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.169
+assigned device:dpu
+out shape:[[1, 38, 38, 256]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[1]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.171" [label="type:nndct_conv2d
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[1]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.171
+assigned device:dpu
+out shape:[[1, 38, 38, 512]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[1]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/16559" [label="type:nndct_leaky_relu
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[1]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/16559
+assigned device:dpu
+out shape:[[1, 38, 38, 512]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[1]/input.175" [label="type:nndct_elemwise_add
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[1]/input.175
+assigned device:dpu
+out shape:[[1, 38, 38, 512]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[2]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.177" [label="type:nndct_conv2d
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[2]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.177
+assigned device:dpu
+out shape:[[1, 38, 38, 256]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[2]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.181" [label="type:nndct_leaky_relu
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[2]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.181
+assigned device:dpu
+out shape:[[1, 38, 38, 256]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[2]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.183" [label="type:nndct_conv2d
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[2]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.183
+assigned device:dpu
+out shape:[[1, 38, 38, 512]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[2]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/16615" [label="type:nndct_leaky_relu
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[2]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/16615
+assigned device:dpu
+out shape:[[1, 38, 38, 512]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[2]/input.187" [label="type:nndct_elemwise_add
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[2]/input.187
+assigned device:dpu
+out shape:[[1, 38, 38, 512]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[3]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.189" [label="type:nndct_conv2d
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[3]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.189
+assigned device:dpu
+out shape:[[1, 38, 38, 256]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[3]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.193" [label="type:nndct_leaky_relu
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[3]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.193
+assigned device:dpu
+out shape:[[1, 38, 38, 256]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[3]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.195" [label="type:nndct_conv2d
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[3]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.195
+assigned device:dpu
+out shape:[[1, 38, 38, 512]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[3]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/16671" [label="type:nndct_leaky_relu
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[3]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/16671
+assigned device:dpu
+out shape:[[1, 38, 38, 512]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[3]/input.199" [label="type:nndct_elemwise_add
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[3]/input.199
+assigned device:dpu
+out shape:[[1, 38, 38, 512]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[4]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.201" [label="type:nndct_conv2d
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[4]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.201
+assigned device:dpu
+out shape:[[1, 38, 38, 256]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[4]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.205" [label="type:nndct_leaky_relu
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[4]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.205
+assigned device:dpu
+out shape:[[1, 38, 38, 256]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[4]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.207" [label="type:nndct_conv2d
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[4]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.207
+assigned device:dpu
+out shape:[[1, 38, 38, 512]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[4]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/16727" [label="type:nndct_leaky_relu
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[4]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/16727
+assigned device:dpu
+out shape:[[1, 38, 38, 512]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[4]/input.211" [label="type:nndct_elemwise_add
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[4]/input.211
+assigned device:dpu
+out shape:[[1, 38, 38, 512]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[5]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.213" [label="type:nndct_conv2d
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[5]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.213
+assigned device:dpu
+out shape:[[1, 38, 38, 256]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[5]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.217" [label="type:nndct_leaky_relu
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[5]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.217
+assigned device:dpu
+out shape:[[1, 38, 38, 256]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[5]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.219" [label="type:nndct_conv2d
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[5]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.219
+assigned device:dpu
+out shape:[[1, 38, 38, 512]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[5]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/16783" [label="type:nndct_leaky_relu
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[5]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/16783
+assigned device:dpu
+out shape:[[1, 38, 38, 512]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[5]/input.223" [label="type:nndct_elemwise_add
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[5]/input.223
+assigned device:dpu
+out shape:[[1, 38, 38, 512]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[6]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.225" [label="type:nndct_conv2d
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[6]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.225
+assigned device:dpu
+out shape:[[1, 38, 38, 256]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[6]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.229" [label="type:nndct_leaky_relu
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[6]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.229
+assigned device:dpu
+out shape:[[1, 38, 38, 256]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[6]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.231" [label="type:nndct_conv2d
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[6]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.231
+assigned device:dpu
+out shape:[[1, 38, 38, 512]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[6]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/16839" [label="type:nndct_leaky_relu
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[6]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/16839
+assigned device:dpu
+out shape:[[1, 38, 38, 512]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[6]/input.235" [label="type:nndct_elemwise_add
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[6]/input.235
+assigned device:dpu
+out shape:[[1, 38, 38, 512]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[7]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.237" [label="type:nndct_conv2d
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[7]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.237
+assigned device:dpu
+out shape:[[1, 38, 38, 256]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[7]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.241" [label="type:nndct_leaky_relu
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[7]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.241
+assigned device:dpu
+out shape:[[1, 38, 38, 256]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[7]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.243" [label="type:nndct_conv2d
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[7]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.243
+assigned device:dpu
+out shape:[[1, 38, 38, 512]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[7]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/16895" [label="type:nndct_leaky_relu
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[7]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/16895
+assigned device:dpu
+out shape:[[1, 38, 38, 512]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[7]/input.247" [label="type:nndct_elemwise_add
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[7]/input.247
+assigned device:dpu
+out shape:[[1, 38, 38, 512]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[8]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.249" [label="type:nndct_conv2d
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[8]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.249
+assigned device:dpu
+out shape:[[1, 38, 38, 256]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[8]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.253" [label="type:nndct_leaky_relu
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[8]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.253
+assigned device:dpu
+out shape:[[1, 38, 38, 256]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[8]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.255" [label="type:nndct_conv2d
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[8]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.255
+assigned device:dpu
+out shape:[[1, 38, 38, 512]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[8]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/16951" [label="type:nndct_leaky_relu
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[8]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/16951
+assigned device:dpu
+out shape:[[1, 38, 38, 512]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[8]/input.259" [label="type:nndct_elemwise_add
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[8]/input.259
+assigned device:dpu
+out shape:[[1, 38, 38, 512]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv6]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.261" [label="type:nndct_conv2d
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv6]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.261
+assigned device:dpu
+out shape:[[1, 19, 19, 1024]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv6]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.265" [label="type:nndct_leaky_relu
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv6]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.265
+assigned device:dpu
+out shape:[[1, 19, 19, 1024]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv6]/Residual_Block[1]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.267" [label="type:nndct_conv2d
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv6]/Residual_Block[1]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.267
+assigned device:dpu
+out shape:[[1, 19, 19, 512]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv6]/Residual_Block[1]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.271" [label="type:nndct_leaky_relu
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv6]/Residual_Block[1]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.271
+assigned device:dpu
+out shape:[[1, 19, 19, 512]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv6]/Residual_Block[1]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.273" [label="type:nndct_conv2d
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv6]/Residual_Block[1]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.273
+assigned device:dpu
+out shape:[[1, 19, 19, 1024]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv6]/Residual_Block[1]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/17034" [label="type:nndct_leaky_relu
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv6]/Residual_Block[1]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/17034
+assigned device:dpu
+out shape:[[1, 19, 19, 1024]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv6]/Residual_Block[1]/input.277" [label="type:nndct_elemwise_add
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv6]/Residual_Block[1]/input.277
+assigned device:dpu
+out shape:[[1, 19, 19, 1024]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv6]/Residual_Block[2]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.279" [label="type:nndct_conv2d
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv6]/Residual_Block[2]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.279
+assigned device:dpu
+out shape:[[1, 19, 19, 512]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv6]/Residual_Block[2]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.283" [label="type:nndct_leaky_relu
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv6]/Residual_Block[2]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.283
+assigned device:dpu
+out shape:[[1, 19, 19, 512]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv6]/Residual_Block[2]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.285" [label="type:nndct_conv2d
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv6]/Residual_Block[2]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.285
+assigned device:dpu
+out shape:[[1, 19, 19, 1024]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv6]/Residual_Block[2]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/17090" [label="type:nndct_leaky_relu
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv6]/Residual_Block[2]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/17090
+assigned device:dpu
+out shape:[[1, 19, 19, 1024]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv6]/Residual_Block[2]/input.289" [label="type:nndct_elemwise_add
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv6]/Residual_Block[2]/input.289
+assigned device:dpu
+out shape:[[1, 19, 19, 1024]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv6]/Residual_Block[3]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.291" [label="type:nndct_conv2d
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv6]/Residual_Block[3]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.291
+assigned device:dpu
+out shape:[[1, 19, 19, 512]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv6]/Residual_Block[3]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.295" [label="type:nndct_leaky_relu
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv6]/Residual_Block[3]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.295
+assigned device:dpu
+out shape:[[1, 19, 19, 512]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv6]/Residual_Block[3]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.297" [label="type:nndct_conv2d
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv6]/Residual_Block[3]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.297
+assigned device:dpu
+out shape:[[1, 19, 19, 1024]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv6]/Residual_Block[3]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/17146" [label="type:nndct_leaky_relu
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv6]/Residual_Block[3]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/17146
+assigned device:dpu
+out shape:[[1, 19, 19, 1024]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv6]/Residual_Block[3]/input.301" [label="type:nndct_elemwise_add
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv6]/Residual_Block[3]/input.301
+assigned device:dpu
+out shape:[[1, 19, 19, 1024]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv6]/Residual_Block[4]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.303" [label="type:nndct_conv2d
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv6]/Residual_Block[4]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.303
+assigned device:dpu
+out shape:[[1, 19, 19, 512]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv6]/Residual_Block[4]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.307" [label="type:nndct_leaky_relu
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv6]/Residual_Block[4]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.307
+assigned device:dpu
+out shape:[[1, 19, 19, 512]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv6]/Residual_Block[4]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.309" [label="type:nndct_conv2d
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv6]/Residual_Block[4]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.309
+assigned device:dpu
+out shape:[[1, 19, 19, 1024]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv6]/Residual_Block[4]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/17202" [label="type:nndct_leaky_relu
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv6]/Residual_Block[4]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/17202
+assigned device:dpu
+out shape:[[1, 19, 19, 1024]]" color=blue]
+	"YOLOv3/Darknet53[backbone]/Sequential[conv6]/Residual_Block[4]/input.313" [label="type:nndct_elemwise_add
+name:YOLOv3::YOLOv3/Darknet53[backbone]/Sequential[conv6]/Residual_Block[4]/input.313
+assigned device:dpu
+out shape:[[1, 19, 19, 1024]]" color=blue]
+	"YOLOv3/Sequential[layer1]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.315" [label="type:nndct_conv2d
+name:YOLOv3::YOLOv3/Sequential[layer1]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.315
+assigned device:dpu
+out shape:[[1, 19, 19, 512]]" color=blue]
+	"YOLOv3/Sequential[layer1]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.319" [label="type:nndct_leaky_relu
+name:YOLOv3::YOLOv3/Sequential[layer1]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.319
+assigned device:dpu
+out shape:[[1, 19, 19, 512]]" color=blue]
+	"YOLOv3/Sequential[layer1]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.321" [label="type:nndct_conv2d
+name:YOLOv3::YOLOv3/Sequential[layer1]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.321
+assigned device:dpu
+out shape:[[1, 19, 19, 1024]]" color=blue]
+	"YOLOv3/Sequential[layer1]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/input.325" [label="type:nndct_leaky_relu
+name:YOLOv3::YOLOv3/Sequential[layer1]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/input.325
+assigned device:dpu
+out shape:[[1, 19, 19, 1024]]" color=blue]
+	"YOLOv3/Sequential[layer1]/ConvLayer[2]/Sequential[conv]/Conv2d[0]/input.327" [label="type:nndct_conv2d
+name:YOLOv3::YOLOv3/Sequential[layer1]/ConvLayer[2]/Sequential[conv]/Conv2d[0]/input.327
+assigned device:dpu
+out shape:[[1, 19, 19, 512]]" color=blue]
+	"YOLOv3/Sequential[layer1]/ConvLayer[2]/Sequential[conv]/LeakyReLU[2]/input.331" [label="type:nndct_leaky_relu
+name:YOLOv3::YOLOv3/Sequential[layer1]/ConvLayer[2]/Sequential[conv]/LeakyReLU[2]/input.331
+assigned device:dpu
+out shape:[[1, 19, 19, 512]]" color=blue]
+	"YOLOv3/Sequential[layer1]/ConvLayer[3]/Sequential[conv]/Conv2d[0]/input.333" [label="type:nndct_conv2d
+name:YOLOv3::YOLOv3/Sequential[layer1]/ConvLayer[3]/Sequential[conv]/Conv2d[0]/input.333
+assigned device:dpu
+out shape:[[1, 19, 19, 1024]]" color=blue]
+	"YOLOv3/Sequential[layer1]/ConvLayer[3]/Sequential[conv]/LeakyReLU[2]/input.337" [label="type:nndct_leaky_relu
+name:YOLOv3::YOLOv3/Sequential[layer1]/ConvLayer[3]/Sequential[conv]/LeakyReLU[2]/input.337
+assigned device:dpu
+out shape:[[1, 19, 19, 1024]]" color=blue]
+	"YOLOv3/Sequential[layer1]/ConvLayer[4]/Sequential[conv]/Conv2d[0]/input.339" [label="type:nndct_conv2d
+name:YOLOv3::YOLOv3/Sequential[layer1]/ConvLayer[4]/Sequential[conv]/Conv2d[0]/input.339
+assigned device:dpu
+out shape:[[1, 19, 19, 512]]" color=blue]
+	"YOLOv3/Sequential[layer1]/ConvLayer[4]/Sequential[conv]/LeakyReLU[2]/input.343" [label="type:nndct_leaky_relu
+name:YOLOv3::YOLOv3/Sequential[layer1]/ConvLayer[4]/Sequential[conv]/LeakyReLU[2]/input.343
+assigned device:dpu
+out shape:[[1, 19, 19, 512]]" color=blue]
+	"YOLOv3/Sequential[stage1]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.345" [label="type:nndct_conv2d
+name:YOLOv3::YOLOv3/Sequential[stage1]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.345
+assigned device:dpu
+out shape:[[1, 19, 19, 1024]]" color=blue]
+	"YOLOv3/Sequential[stage1]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.349" [label="type:nndct_leaky_relu
+name:YOLOv3::YOLOv3/Sequential[stage1]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.349
+assigned device:dpu
+out shape:[[1, 19, 19, 1024]]" color=blue]
+	"YOLOv3/Sequential[stage1]/Conv2d[1]/17389" [label="type:nndct_conv2d
+name:YOLOv3::YOLOv3/Sequential[stage1]/Conv2d[1]/17389
+assigned device:dpu
+out shape:[[1, 19, 19, 255]]" color=blue]
+	"YOLOv3/Sequential[upsample1]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.351" [label="type:nndct_conv2d
+name:YOLOv3::YOLOv3/Sequential[upsample1]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.351
+assigned device:dpu
+out shape:[[1, 19, 19, 256]]" color=blue]
+	"YOLOv3/Sequential[upsample1]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.355" [label="type:nndct_leaky_relu
+name:YOLOv3::YOLOv3/Sequential[upsample1]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.355
+assigned device:dpu
+out shape:[[1, 19, 19, 256]]" color=blue]
+	"YOLOv3/Sequential[upsample1]/UpsamplingNearest2d[1]/17421" [label="type:nndct_resize
+name:YOLOv3::YOLOv3/Sequential[upsample1]/UpsamplingNearest2d[1]/17421
+assigned device:dpu
+out shape:[[1, 38, 38, 256]]" color=blue]
+	"YOLOv3/input.357" [label="type:nndct_concat
+name:YOLOv3::YOLOv3/input.357
+assigned device:dpu
+out shape:[[1, 38, 38, 768]]" color=blue]
+	"YOLOv3/Sequential[layer2]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.359" [label="type:nndct_conv2d
+name:YOLOv3::YOLOv3/Sequential[layer2]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.359
+assigned device:dpu
+out shape:[[1, 38, 38, 256]]" color=blue]
+	"YOLOv3/Sequential[layer2]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.363" [label="type:nndct_leaky_relu
+name:YOLOv3::YOLOv3/Sequential[layer2]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.363
+assigned device:dpu
+out shape:[[1, 38, 38, 256]]" color=blue]
+	"YOLOv3/Sequential[layer2]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.365" [label="type:nndct_conv2d
+name:YOLOv3::YOLOv3/Sequential[layer2]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.365
+assigned device:dpu
+out shape:[[1, 38, 38, 512]]" color=blue]
+	"YOLOv3/Sequential[layer2]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/input.369" [label="type:nndct_leaky_relu
+name:YOLOv3::YOLOv3/Sequential[layer2]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/input.369
+assigned device:dpu
+out shape:[[1, 38, 38, 512]]" color=blue]
+	"YOLOv3/Sequential[layer2]/ConvLayer[2]/Sequential[conv]/Conv2d[0]/input.371" [label="type:nndct_conv2d
+name:YOLOv3::YOLOv3/Sequential[layer2]/ConvLayer[2]/Sequential[conv]/Conv2d[0]/input.371
+assigned device:dpu
+out shape:[[1, 38, 38, 256]]" color=blue]
+	"YOLOv3/Sequential[layer2]/ConvLayer[2]/Sequential[conv]/LeakyReLU[2]/input.375" [label="type:nndct_leaky_relu
+name:YOLOv3::YOLOv3/Sequential[layer2]/ConvLayer[2]/Sequential[conv]/LeakyReLU[2]/input.375
+assigned device:dpu
+out shape:[[1, 38, 38, 256]]" color=blue]
+	"YOLOv3/Sequential[layer2]/ConvLayer[3]/Sequential[conv]/Conv2d[0]/input.377" [label="type:nndct_conv2d
+name:YOLOv3::YOLOv3/Sequential[layer2]/ConvLayer[3]/Sequential[conv]/Conv2d[0]/input.377
+assigned device:dpu
+out shape:[[1, 38, 38, 512]]" color=blue]
+	"YOLOv3/Sequential[layer2]/ConvLayer[3]/Sequential[conv]/LeakyReLU[2]/input.381" [label="type:nndct_leaky_relu
+name:YOLOv3::YOLOv3/Sequential[layer2]/ConvLayer[3]/Sequential[conv]/LeakyReLU[2]/input.381
+assigned device:dpu
+out shape:[[1, 38, 38, 512]]" color=blue]
+	"YOLOv3/Sequential[layer2]/ConvLayer[4]/Sequential[conv]/Conv2d[0]/input.383" [label="type:nndct_conv2d
+name:YOLOv3::YOLOv3/Sequential[layer2]/ConvLayer[4]/Sequential[conv]/Conv2d[0]/input.383
+assigned device:dpu
+out shape:[[1, 38, 38, 256]]" color=blue]
+	"YOLOv3/Sequential[layer2]/ConvLayer[4]/Sequential[conv]/LeakyReLU[2]/input.387" [label="type:nndct_leaky_relu
+name:YOLOv3::YOLOv3/Sequential[layer2]/ConvLayer[4]/Sequential[conv]/LeakyReLU[2]/input.387
+assigned device:dpu
+out shape:[[1, 38, 38, 256]]" color=blue]
+	"YOLOv3/Sequential[stage2]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.389" [label="type:nndct_conv2d
+name:YOLOv3::YOLOv3/Sequential[stage2]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.389
+assigned device:dpu
+out shape:[[1, 38, 38, 512]]" color=blue]
+	"YOLOv3/Sequential[stage2]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.393" [label="type:nndct_leaky_relu
+name:YOLOv3::YOLOv3/Sequential[stage2]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.393
+assigned device:dpu
+out shape:[[1, 38, 38, 512]]" color=blue]
+	"YOLOv3/Sequential[stage2]/Conv2d[1]/17605" [label="type:nndct_conv2d
+name:YOLOv3::YOLOv3/Sequential[stage2]/Conv2d[1]/17605
+assigned device:dpu
+out shape:[[1, 38, 38, 255]]" color=blue]
+	"YOLOv3/Sequential[upsample2]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.395" [label="type:nndct_conv2d
+name:YOLOv3::YOLOv3/Sequential[upsample2]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.395
+assigned device:dpu
+out shape:[[1, 38, 38, 128]]" color=blue]
+	"YOLOv3/Sequential[upsample2]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.399" [label="type:nndct_leaky_relu
+name:YOLOv3::YOLOv3/Sequential[upsample2]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.399
+assigned device:dpu
+out shape:[[1, 38, 38, 128]]" color=blue]
+	"YOLOv3/Sequential[upsample2]/UpsamplingNearest2d[1]/17637" [label="type:nndct_resize
+name:YOLOv3::YOLOv3/Sequential[upsample2]/UpsamplingNearest2d[1]/17637
+assigned device:dpu
+out shape:[[1, 76, 76, 128]]" color=blue]
+	"YOLOv3/input.401" [label="type:nndct_concat
+name:YOLOv3::YOLOv3/input.401
+assigned device:dpu
+out shape:[[1, 76, 76, 384]]" color=blue]
+	"YOLOv3/Sequential[layer3]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.403" [label="type:nndct_conv2d
+name:YOLOv3::YOLOv3/Sequential[layer3]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.403
+assigned device:dpu
+out shape:[[1, 76, 76, 128]]" color=blue]
+	"YOLOv3/Sequential[layer3]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.407" [label="type:nndct_leaky_relu
+name:YOLOv3::YOLOv3/Sequential[layer3]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.407
+assigned device:dpu
+out shape:[[1, 76, 76, 128]]" color=blue]
+	"YOLOv3/Sequential[layer3]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.409" [label="type:nndct_conv2d
+name:YOLOv3::YOLOv3/Sequential[layer3]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.409
+assigned device:dpu
+out shape:[[1, 76, 76, 256]]" color=blue]
+	"YOLOv3/Sequential[layer3]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/input.413" [label="type:nndct_leaky_relu
+name:YOLOv3::YOLOv3/Sequential[layer3]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/input.413
+assigned device:dpu
+out shape:[[1, 76, 76, 256]]" color=blue]
+	"YOLOv3/Sequential[layer3]/ConvLayer[2]/Sequential[conv]/Conv2d[0]/input.415" [label="type:nndct_conv2d
+name:YOLOv3::YOLOv3/Sequential[layer3]/ConvLayer[2]/Sequential[conv]/Conv2d[0]/input.415
+assigned device:dpu
+out shape:[[1, 76, 76, 128]]" color=blue]
+	"YOLOv3/Sequential[layer3]/ConvLayer[2]/Sequential[conv]/LeakyReLU[2]/input.419" [label="type:nndct_leaky_relu
+name:YOLOv3::YOLOv3/Sequential[layer3]/ConvLayer[2]/Sequential[conv]/LeakyReLU[2]/input.419
+assigned device:dpu
+out shape:[[1, 76, 76, 128]]" color=blue]
+	"YOLOv3/Sequential[layer3]/ConvLayer[3]/Sequential[conv]/Conv2d[0]/input.421" [label="type:nndct_conv2d
+name:YOLOv3::YOLOv3/Sequential[layer3]/ConvLayer[3]/Sequential[conv]/Conv2d[0]/input.421
+assigned device:dpu
+out shape:[[1, 76, 76, 256]]" color=blue]
+	"YOLOv3/Sequential[layer3]/ConvLayer[3]/Sequential[conv]/LeakyReLU[2]/input.425" [label="type:nndct_leaky_relu
+name:YOLOv3::YOLOv3/Sequential[layer3]/ConvLayer[3]/Sequential[conv]/LeakyReLU[2]/input.425
+assigned device:dpu
+out shape:[[1, 76, 76, 256]]" color=blue]
+	"YOLOv3/Sequential[layer3]/ConvLayer[4]/Sequential[conv]/Conv2d[0]/input.427" [label="type:nndct_conv2d
+name:YOLOv3::YOLOv3/Sequential[layer3]/ConvLayer[4]/Sequential[conv]/Conv2d[0]/input.427
+assigned device:dpu
+out shape:[[1, 76, 76, 128]]" color=blue]
+	"YOLOv3/Sequential[layer3]/ConvLayer[4]/Sequential[conv]/LeakyReLU[2]/input.431" [label="type:nndct_leaky_relu
+name:YOLOv3::YOLOv3/Sequential[layer3]/ConvLayer[4]/Sequential[conv]/LeakyReLU[2]/input.431
+assigned device:dpu
+out shape:[[1, 76, 76, 128]]" color=blue]
+	"YOLOv3/Sequential[stage3]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.433" [label="type:nndct_conv2d
+name:YOLOv3::YOLOv3/Sequential[stage3]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.433
+assigned device:dpu
+out shape:[[1, 76, 76, 256]]" color=blue]
+	"YOLOv3/Sequential[stage3]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input" [label="type:nndct_leaky_relu
+name:YOLOv3::YOLOv3/Sequential[stage3]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input
+assigned device:dpu
+out shape:[[1, 76, 76, 256]]" color=blue]
+	"YOLOv3/Sequential[stage3]/Conv2d[1]/17821" [label="type:nndct_conv2d
+name:YOLOv3::YOLOv3/Sequential[stage3]/Conv2d[1]/17821
+assigned device:dpu
+out shape:[[1, 76, 76, 255]]" color=blue]
+	return_0 [label="type:nndct_return
+name:YOLOv3::return_0
+assigned device:user
+out shape:[]" color=black]
+	input_0 -> "YOLOv3/Darknet53[backbone]/ConvLayer[conv1]/Sequential[conv]/Conv2d[0]/input.3"
+	"YOLOv3/Darknet53[backbone]/ConvLayer[conv1]/Sequential[conv]/Conv2d[0]/input.3" -> "YOLOv3/Darknet53[backbone]/ConvLayer[conv1]/Sequential[conv]/LeakyReLU[2]/input.7"
+	"YOLOv3/Darknet53[backbone]/ConvLayer[conv1]/Sequential[conv]/LeakyReLU[2]/input.7" -> "YOLOv3/Darknet53[backbone]/Sequential[conv2]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.9"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv2]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.9" -> "YOLOv3/Darknet53[backbone]/Sequential[conv2]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.13"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv2]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.13" -> "YOLOv3/Darknet53[backbone]/Sequential[conv2]/Residual_Block[1]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.15"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv2]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.13" -> "YOLOv3/Darknet53[backbone]/Sequential[conv2]/Residual_Block[1]/input.25"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv2]/Residual_Block[1]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.15" -> "YOLOv3/Darknet53[backbone]/Sequential[conv2]/Residual_Block[1]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.19"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv2]/Residual_Block[1]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.19" -> "YOLOv3/Darknet53[backbone]/Sequential[conv2]/Residual_Block[1]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.21"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv2]/Residual_Block[1]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.21" -> "YOLOv3/Darknet53[backbone]/Sequential[conv2]/Residual_Block[1]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/15862"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv2]/Residual_Block[1]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/15862" -> "YOLOv3/Darknet53[backbone]/Sequential[conv2]/Residual_Block[1]/input.25"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv2]/Residual_Block[1]/input.25" -> "YOLOv3/Darknet53[backbone]/Sequential[conv3]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.27"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv3]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.27" -> "YOLOv3/Darknet53[backbone]/Sequential[conv3]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.31"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv3]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.31" -> "YOLOv3/Darknet53[backbone]/Sequential[conv3]/Residual_Block[1]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.33"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv3]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.31" -> "YOLOv3/Darknet53[backbone]/Sequential[conv3]/Residual_Block[1]/input.43"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv3]/Residual_Block[1]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.33" -> "YOLOv3/Darknet53[backbone]/Sequential[conv3]/Residual_Block[1]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.37"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv3]/Residual_Block[1]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.37" -> "YOLOv3/Darknet53[backbone]/Sequential[conv3]/Residual_Block[1]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.39"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv3]/Residual_Block[1]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.39" -> "YOLOv3/Darknet53[backbone]/Sequential[conv3]/Residual_Block[1]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/15945"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv3]/Residual_Block[1]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/15945" -> "YOLOv3/Darknet53[backbone]/Sequential[conv3]/Residual_Block[1]/input.43"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv3]/Residual_Block[1]/input.43" -> "YOLOv3/Darknet53[backbone]/Sequential[conv3]/Residual_Block[2]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.45"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv3]/Residual_Block[1]/input.43" -> "YOLOv3/Darknet53[backbone]/Sequential[conv3]/Residual_Block[2]/input.55"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv3]/Residual_Block[2]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.45" -> "YOLOv3/Darknet53[backbone]/Sequential[conv3]/Residual_Block[2]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.49"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv3]/Residual_Block[2]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.49" -> "YOLOv3/Darknet53[backbone]/Sequential[conv3]/Residual_Block[2]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.51"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv3]/Residual_Block[2]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.51" -> "YOLOv3/Darknet53[backbone]/Sequential[conv3]/Residual_Block[2]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/16001"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv3]/Residual_Block[2]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/16001" -> "YOLOv3/Darknet53[backbone]/Sequential[conv3]/Residual_Block[2]/input.55"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv3]/Residual_Block[2]/input.55" -> "YOLOv3/Darknet53[backbone]/Sequential[conv4]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.57"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv4]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.57" -> "YOLOv3/Darknet53[backbone]/Sequential[conv4]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.61"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv4]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.61" -> "YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[1]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.63"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv4]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.61" -> "YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[1]/input.73"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[1]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.63" -> "YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[1]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.67"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[1]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.67" -> "YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[1]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.69"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[1]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.69" -> "YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[1]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/16084"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[1]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/16084" -> "YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[1]/input.73"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[1]/input.73" -> "YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[2]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.75"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[1]/input.73" -> "YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[2]/input.85"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[2]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.75" -> "YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[2]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.79"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[2]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.79" -> "YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[2]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.81"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[2]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.81" -> "YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[2]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/16140"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[2]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/16140" -> "YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[2]/input.85"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[2]/input.85" -> "YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[3]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.87"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[2]/input.85" -> "YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[3]/input.97"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[3]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.87" -> "YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[3]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.91"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[3]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.91" -> "YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[3]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.93"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[3]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.93" -> "YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[3]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/16196"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[3]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/16196" -> "YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[3]/input.97"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[3]/input.97" -> "YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[4]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.99"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[3]/input.97" -> "YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[4]/input.109"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[4]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.99" -> "YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[4]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.103"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[4]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.103" -> "YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[4]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.105"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[4]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.105" -> "YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[4]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/16252"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[4]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/16252" -> "YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[4]/input.109"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[4]/input.109" -> "YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[5]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.111"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[4]/input.109" -> "YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[5]/input.121"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[5]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.111" -> "YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[5]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.115"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[5]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.115" -> "YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[5]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.117"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[5]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.117" -> "YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[5]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/16308"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[5]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/16308" -> "YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[5]/input.121"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[5]/input.121" -> "YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[6]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.123"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[5]/input.121" -> "YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[6]/input.133"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[6]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.123" -> "YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[6]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.127"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[6]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.127" -> "YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[6]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.129"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[6]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.129" -> "YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[6]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/16364"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[6]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/16364" -> "YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[6]/input.133"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[6]/input.133" -> "YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[7]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.135"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[6]/input.133" -> "YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[7]/input.145"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[7]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.135" -> "YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[7]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.139"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[7]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.139" -> "YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[7]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.141"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[7]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.141" -> "YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[7]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/16420"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[7]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/16420" -> "YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[7]/input.145"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[7]/input.145" -> "YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[8]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.147"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[7]/input.145" -> "YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[8]/input.157"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[8]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.147" -> "YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[8]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.151"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[8]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.151" -> "YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[8]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.153"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[8]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.153" -> "YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[8]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/16476"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[8]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/16476" -> "YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[8]/input.157"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[8]/input.157" -> "YOLOv3/Darknet53[backbone]/Sequential[conv5]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.159"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv4]/Residual_Block[8]/input.157" -> "YOLOv3/input.401"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv5]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.159" -> "YOLOv3/Darknet53[backbone]/Sequential[conv5]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.163"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv5]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.163" -> "YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[1]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.165"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv5]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.163" -> "YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[1]/input.175"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[1]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.165" -> "YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[1]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.169"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[1]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.169" -> "YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[1]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.171"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[1]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.171" -> "YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[1]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/16559"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[1]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/16559" -> "YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[1]/input.175"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[1]/input.175" -> "YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[2]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.177"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[1]/input.175" -> "YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[2]/input.187"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[2]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.177" -> "YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[2]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.181"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[2]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.181" -> "YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[2]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.183"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[2]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.183" -> "YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[2]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/16615"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[2]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/16615" -> "YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[2]/input.187"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[2]/input.187" -> "YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[3]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.189"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[2]/input.187" -> "YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[3]/input.199"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[3]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.189" -> "YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[3]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.193"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[3]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.193" -> "YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[3]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.195"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[3]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.195" -> "YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[3]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/16671"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[3]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/16671" -> "YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[3]/input.199"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[3]/input.199" -> "YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[4]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.201"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[3]/input.199" -> "YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[4]/input.211"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[4]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.201" -> "YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[4]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.205"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[4]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.205" -> "YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[4]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.207"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[4]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.207" -> "YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[4]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/16727"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[4]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/16727" -> "YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[4]/input.211"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[4]/input.211" -> "YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[5]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.213"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[4]/input.211" -> "YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[5]/input.223"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[5]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.213" -> "YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[5]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.217"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[5]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.217" -> "YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[5]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.219"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[5]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.219" -> "YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[5]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/16783"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[5]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/16783" -> "YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[5]/input.223"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[5]/input.223" -> "YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[6]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.225"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[5]/input.223" -> "YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[6]/input.235"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[6]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.225" -> "YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[6]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.229"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[6]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.229" -> "YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[6]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.231"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[6]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.231" -> "YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[6]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/16839"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[6]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/16839" -> "YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[6]/input.235"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[6]/input.235" -> "YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[7]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.237"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[6]/input.235" -> "YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[7]/input.247"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[7]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.237" -> "YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[7]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.241"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[7]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.241" -> "YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[7]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.243"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[7]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.243" -> "YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[7]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/16895"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[7]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/16895" -> "YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[7]/input.247"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[7]/input.247" -> "YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[8]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.249"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[7]/input.247" -> "YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[8]/input.259"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[8]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.249" -> "YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[8]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.253"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[8]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.253" -> "YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[8]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.255"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[8]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.255" -> "YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[8]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/16951"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[8]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/16951" -> "YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[8]/input.259"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[8]/input.259" -> "YOLOv3/Darknet53[backbone]/Sequential[conv6]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.261"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv5]/Residual_Block[8]/input.259" -> "YOLOv3/input.357"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv6]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.261" -> "YOLOv3/Darknet53[backbone]/Sequential[conv6]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.265"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv6]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.265" -> "YOLOv3/Darknet53[backbone]/Sequential[conv6]/Residual_Block[1]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.267"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv6]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.265" -> "YOLOv3/Darknet53[backbone]/Sequential[conv6]/Residual_Block[1]/input.277"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv6]/Residual_Block[1]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.267" -> "YOLOv3/Darknet53[backbone]/Sequential[conv6]/Residual_Block[1]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.271"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv6]/Residual_Block[1]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.271" -> "YOLOv3/Darknet53[backbone]/Sequential[conv6]/Residual_Block[1]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.273"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv6]/Residual_Block[1]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.273" -> "YOLOv3/Darknet53[backbone]/Sequential[conv6]/Residual_Block[1]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/17034"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv6]/Residual_Block[1]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/17034" -> "YOLOv3/Darknet53[backbone]/Sequential[conv6]/Residual_Block[1]/input.277"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv6]/Residual_Block[1]/input.277" -> "YOLOv3/Darknet53[backbone]/Sequential[conv6]/Residual_Block[2]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.279"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv6]/Residual_Block[1]/input.277" -> "YOLOv3/Darknet53[backbone]/Sequential[conv6]/Residual_Block[2]/input.289"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv6]/Residual_Block[2]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.279" -> "YOLOv3/Darknet53[backbone]/Sequential[conv6]/Residual_Block[2]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.283"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv6]/Residual_Block[2]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.283" -> "YOLOv3/Darknet53[backbone]/Sequential[conv6]/Residual_Block[2]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.285"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv6]/Residual_Block[2]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.285" -> "YOLOv3/Darknet53[backbone]/Sequential[conv6]/Residual_Block[2]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/17090"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv6]/Residual_Block[2]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/17090" -> "YOLOv3/Darknet53[backbone]/Sequential[conv6]/Residual_Block[2]/input.289"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv6]/Residual_Block[2]/input.289" -> "YOLOv3/Darknet53[backbone]/Sequential[conv6]/Residual_Block[3]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.291"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv6]/Residual_Block[2]/input.289" -> "YOLOv3/Darknet53[backbone]/Sequential[conv6]/Residual_Block[3]/input.301"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv6]/Residual_Block[3]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.291" -> "YOLOv3/Darknet53[backbone]/Sequential[conv6]/Residual_Block[3]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.295"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv6]/Residual_Block[3]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.295" -> "YOLOv3/Darknet53[backbone]/Sequential[conv6]/Residual_Block[3]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.297"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv6]/Residual_Block[3]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.297" -> "YOLOv3/Darknet53[backbone]/Sequential[conv6]/Residual_Block[3]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/17146"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv6]/Residual_Block[3]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/17146" -> "YOLOv3/Darknet53[backbone]/Sequential[conv6]/Residual_Block[3]/input.301"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv6]/Residual_Block[3]/input.301" -> "YOLOv3/Darknet53[backbone]/Sequential[conv6]/Residual_Block[4]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.303"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv6]/Residual_Block[3]/input.301" -> "YOLOv3/Darknet53[backbone]/Sequential[conv6]/Residual_Block[4]/input.313"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv6]/Residual_Block[4]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.303" -> "YOLOv3/Darknet53[backbone]/Sequential[conv6]/Residual_Block[4]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.307"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv6]/Residual_Block[4]/Sequential[skip_connection]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.307" -> "YOLOv3/Darknet53[backbone]/Sequential[conv6]/Residual_Block[4]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.309"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv6]/Residual_Block[4]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.309" -> "YOLOv3/Darknet53[backbone]/Sequential[conv6]/Residual_Block[4]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/17202"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv6]/Residual_Block[4]/Sequential[skip_connection]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/17202" -> "YOLOv3/Darknet53[backbone]/Sequential[conv6]/Residual_Block[4]/input.313"
+	"YOLOv3/Darknet53[backbone]/Sequential[conv6]/Residual_Block[4]/input.313" -> "YOLOv3/Sequential[layer1]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.315"
+	"YOLOv3/Sequential[layer1]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.315" -> "YOLOv3/Sequential[layer1]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.319"
+	"YOLOv3/Sequential[layer1]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.319" -> "YOLOv3/Sequential[layer1]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.321"
+	"YOLOv3/Sequential[layer1]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.321" -> "YOLOv3/Sequential[layer1]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/input.325"
+	"YOLOv3/Sequential[layer1]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/input.325" -> "YOLOv3/Sequential[layer1]/ConvLayer[2]/Sequential[conv]/Conv2d[0]/input.327"
+	"YOLOv3/Sequential[layer1]/ConvLayer[2]/Sequential[conv]/Conv2d[0]/input.327" -> "YOLOv3/Sequential[layer1]/ConvLayer[2]/Sequential[conv]/LeakyReLU[2]/input.331"
+	"YOLOv3/Sequential[layer1]/ConvLayer[2]/Sequential[conv]/LeakyReLU[2]/input.331" -> "YOLOv3/Sequential[layer1]/ConvLayer[3]/Sequential[conv]/Conv2d[0]/input.333"
+	"YOLOv3/Sequential[layer1]/ConvLayer[3]/Sequential[conv]/Conv2d[0]/input.333" -> "YOLOv3/Sequential[layer1]/ConvLayer[3]/Sequential[conv]/LeakyReLU[2]/input.337"
+	"YOLOv3/Sequential[layer1]/ConvLayer[3]/Sequential[conv]/LeakyReLU[2]/input.337" -> "YOLOv3/Sequential[layer1]/ConvLayer[4]/Sequential[conv]/Conv2d[0]/input.339"
+	"YOLOv3/Sequential[layer1]/ConvLayer[4]/Sequential[conv]/Conv2d[0]/input.339" -> "YOLOv3/Sequential[layer1]/ConvLayer[4]/Sequential[conv]/LeakyReLU[2]/input.343"
+	"YOLOv3/Sequential[layer1]/ConvLayer[4]/Sequential[conv]/LeakyReLU[2]/input.343" -> "YOLOv3/Sequential[stage1]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.345"
+	"YOLOv3/Sequential[layer1]/ConvLayer[4]/Sequential[conv]/LeakyReLU[2]/input.343" -> "YOLOv3/Sequential[upsample1]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.351"
+	"YOLOv3/Sequential[stage1]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.345" -> "YOLOv3/Sequential[stage1]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.349"
+	"YOLOv3/Sequential[stage1]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.349" -> "YOLOv3/Sequential[stage1]/Conv2d[1]/17389"
+	"YOLOv3/Sequential[stage1]/Conv2d[1]/17389" -> return_0
+	"YOLOv3/Sequential[upsample1]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.351" -> "YOLOv3/Sequential[upsample1]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.355"
+	"YOLOv3/Sequential[upsample1]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.355" -> "YOLOv3/Sequential[upsample1]/UpsamplingNearest2d[1]/17421"
+	"YOLOv3/Sequential[upsample1]/UpsamplingNearest2d[1]/17421" -> "YOLOv3/input.357"
+	"YOLOv3/input.357" -> "YOLOv3/Sequential[layer2]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.359"
+	"YOLOv3/Sequential[layer2]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.359" -> "YOLOv3/Sequential[layer2]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.363"
+	"YOLOv3/Sequential[layer2]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.363" -> "YOLOv3/Sequential[layer2]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.365"
+	"YOLOv3/Sequential[layer2]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.365" -> "YOLOv3/Sequential[layer2]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/input.369"
+	"YOLOv3/Sequential[layer2]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/input.369" -> "YOLOv3/Sequential[layer2]/ConvLayer[2]/Sequential[conv]/Conv2d[0]/input.371"
+	"YOLOv3/Sequential[layer2]/ConvLayer[2]/Sequential[conv]/Conv2d[0]/input.371" -> "YOLOv3/Sequential[layer2]/ConvLayer[2]/Sequential[conv]/LeakyReLU[2]/input.375"
+	"YOLOv3/Sequential[layer2]/ConvLayer[2]/Sequential[conv]/LeakyReLU[2]/input.375" -> "YOLOv3/Sequential[layer2]/ConvLayer[3]/Sequential[conv]/Conv2d[0]/input.377"
+	"YOLOv3/Sequential[layer2]/ConvLayer[3]/Sequential[conv]/Conv2d[0]/input.377" -> "YOLOv3/Sequential[layer2]/ConvLayer[3]/Sequential[conv]/LeakyReLU[2]/input.381"
+	"YOLOv3/Sequential[layer2]/ConvLayer[3]/Sequential[conv]/LeakyReLU[2]/input.381" -> "YOLOv3/Sequential[layer2]/ConvLayer[4]/Sequential[conv]/Conv2d[0]/input.383"
+	"YOLOv3/Sequential[layer2]/ConvLayer[4]/Sequential[conv]/Conv2d[0]/input.383" -> "YOLOv3/Sequential[layer2]/ConvLayer[4]/Sequential[conv]/LeakyReLU[2]/input.387"
+	"YOLOv3/Sequential[layer2]/ConvLayer[4]/Sequential[conv]/LeakyReLU[2]/input.387" -> "YOLOv3/Sequential[stage2]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.389"
+	"YOLOv3/Sequential[layer2]/ConvLayer[4]/Sequential[conv]/LeakyReLU[2]/input.387" -> "YOLOv3/Sequential[upsample2]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.395"
+	"YOLOv3/Sequential[stage2]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.389" -> "YOLOv3/Sequential[stage2]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.393"
+	"YOLOv3/Sequential[stage2]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.393" -> "YOLOv3/Sequential[stage2]/Conv2d[1]/17605"
+	"YOLOv3/Sequential[stage2]/Conv2d[1]/17605" -> return_0
+	"YOLOv3/Sequential[upsample2]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.395" -> "YOLOv3/Sequential[upsample2]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.399"
+	"YOLOv3/Sequential[upsample2]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.399" -> "YOLOv3/Sequential[upsample2]/UpsamplingNearest2d[1]/17637"
+	"YOLOv3/Sequential[upsample2]/UpsamplingNearest2d[1]/17637" -> "YOLOv3/input.401"
+	"YOLOv3/input.401" -> "YOLOv3/Sequential[layer3]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.403"
+	"YOLOv3/Sequential[layer3]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.403" -> "YOLOv3/Sequential[layer3]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.407"
+	"YOLOv3/Sequential[layer3]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input.407" -> "YOLOv3/Sequential[layer3]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.409"
+	"YOLOv3/Sequential[layer3]/ConvLayer[1]/Sequential[conv]/Conv2d[0]/input.409" -> "YOLOv3/Sequential[layer3]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/input.413"
+	"YOLOv3/Sequential[layer3]/ConvLayer[1]/Sequential[conv]/LeakyReLU[2]/input.413" -> "YOLOv3/Sequential[layer3]/ConvLayer[2]/Sequential[conv]/Conv2d[0]/input.415"
+	"YOLOv3/Sequential[layer3]/ConvLayer[2]/Sequential[conv]/Conv2d[0]/input.415" -> "YOLOv3/Sequential[layer3]/ConvLayer[2]/Sequential[conv]/LeakyReLU[2]/input.419"
+	"YOLOv3/Sequential[layer3]/ConvLayer[2]/Sequential[conv]/LeakyReLU[2]/input.419" -> "YOLOv3/Sequential[layer3]/ConvLayer[3]/Sequential[conv]/Conv2d[0]/input.421"
+	"YOLOv3/Sequential[layer3]/ConvLayer[3]/Sequential[conv]/Conv2d[0]/input.421" -> "YOLOv3/Sequential[layer3]/ConvLayer[3]/Sequential[conv]/LeakyReLU[2]/input.425"
+	"YOLOv3/Sequential[layer3]/ConvLayer[3]/Sequential[conv]/LeakyReLU[2]/input.425" -> "YOLOv3/Sequential[layer3]/ConvLayer[4]/Sequential[conv]/Conv2d[0]/input.427"
+	"YOLOv3/Sequential[layer3]/ConvLayer[4]/Sequential[conv]/Conv2d[0]/input.427" -> "YOLOv3/Sequential[layer3]/ConvLayer[4]/Sequential[conv]/LeakyReLU[2]/input.431"
+	"YOLOv3/Sequential[layer3]/ConvLayer[4]/Sequential[conv]/LeakyReLU[2]/input.431" -> "YOLOv3/Sequential[stage3]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.433"
+	"YOLOv3/Sequential[stage3]/ConvLayer[0]/Sequential[conv]/Conv2d[0]/input.433" -> "YOLOv3/Sequential[stage3]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input"
+	"YOLOv3/Sequential[stage3]/ConvLayer[0]/Sequential[conv]/LeakyReLU[2]/input" -> "YOLOv3/Sequential[stage3]/Conv2d[1]/17821"
+	"YOLOv3/Sequential[stage3]/Conv2d[1]/17821" -> return_0
+}
