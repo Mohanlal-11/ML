@@ -45,12 +45,12 @@ python3 board_inference/post_processing.py
 python3 post_processing.py
 ```
 * This will output:
-![post_processing_from_DPU](post_processing_from_DPU.png)
+![post_processing_from_DPU](post_processing_from_DPU.jpg)
 
 ```bash
 python3 inference.py yolov3.xmodel images
 ```
 
 * The output of yolov3 from board:
-![yolov3_output_board](output_from_compiled_yolov3.png)
+![yolov3_output_board](output_from_compiled_yolov3.jpg)
 
