@@ -29,7 +29,10 @@ def train_step(model:torch.nn.Module,
                train_dataloader:torch.utils.data.DataLoader,
                loss_fn:torch.nn.Module,
                LR:float,
-               device:torch.device):
+               device:torch.device,
+               num_cls:int,
+               num_anchors:int,
+               size:list):
   scaler = GradScaler()
   model = model.to(device)
   train_loss = 0
@@ -39,12 +42,40 @@ def train_step(model:torch.nn.Module,
                               weight_decay=0.0005)
   # optimizer = torch.optim.Adam(params=model.parameters(),lr=LR)
 
+  num_coordinate = 5+num_cls
+
   model.train()
   for batch, (image, label) in enumerate(train_dataloader):
     image, label[0], label[1], label[2] = image.to(device), label[0].to(device), label[1].to(device), label[2].to(device)
 
     with autocast():
-      large_scale_prediction, medium_scale_prediction, small_scale_prediction = model(image)
+      stage1_out, stage2_out, stage3_out = model(image)
+      stage1_out = stage1_out.permute(0,2,3,1).view(batch, size[0], size[0], num_anchors, num_coordinate)
+      stage1_confidence = stage1_out[..., 4:5]
+      stage1_x_center = stage1_out[..., 0:1]
+      stage1_y_center = stage1_out[..., 1:2]
+      stage1_width = stage1_out[..., 2:3]
+      stage1_height = stage1_out[..., 3:4]
+      stage1_class = stage1_out[..., 5:]
+      large_scale_prediction = torch.cat((stage1_x_center, stage1_y_center, stage1_width, stage1_height, stage1_confidence, stage1_class), dim=-1)
+
+      stage2_out = stage2_out.permute(0,2,3,1).view(batch, size[1], size[1], num_anchors, num_coordinate)
+      stage2_confidence = stage2_out[..., 4:5]
+      stage2_x_center = stage2_out[..., 0:1]
+      stage2_y_center = stage2_out[..., 1:2]
+      stage2_width = stage2_out[..., 2:3]
+      stage2_height = stage2_out[..., 3:4]
+      stage2_class = stage2_out[..., 5:]
+      medium_scale_prediction = torch.cat((stage2_x_center, stage2_y_center, stage2_width, stage2_height, stage2_confidence, stage2_class), dim=-1)
+
+      stage3_out = stage3_out.permute(0,2,3,1).view(batch, size[2], size[2], num_anchors, num_coordinate)
+      stage3_confidence = stage3_out[..., 4:5]
+      stage3_x_center = stage3_out[..., 0:1]
+      stage3_y_center = stage3_out[..., 1:2]
+      stage3_width = stage3_out[..., 2:3]
+      stage3_height = stage3_out[..., 3:4]
+      stage3_class = stage3_out[..., 5:]
+      small_scale_prediction = torch.cat((stage3_x_center, stage3_y_center, stage3_width, stage3_height, stage3_confidence, stage3_class), dim=-1)
       loss = (
           loss_fn(predictions=large_scale_prediction, labels=label[0], scale="large", device=device)
           + loss_fn(predictions=medium_scale_prediction, labels=label[1], scale="medium", device=device)
@@ -67,16 +98,44 @@ def validation_step(model:torch.nn.Module,
                     loss_fn:torch.nn.Module,
                     num_class:int,
                     grid_size:list,
-                    device:torch.device):
+                    device:torch.device,
+                    num_anchors:int):
   model = model.to(device)
   valid_loss = 0
+  num_coordinate = 5+num_class
   best_map_large, best_map_medium, best_map_small = 0, 0, 0
   model.eval()
   with torch.inference_mode():
     for batch, (image, label) in enumerate(valid_dataloader):
       image, label[0], label[1], label[2] = image.to(device), label[0].to(device), label[1].to(device), label[2].to(device)
       with autocast():
-        large_scale_prediction, medium_scale_prediction, small_scale_prediction = model(image)
+        stage1_out, stage2_out, stage3_out = model(image)
+        stage1_out = stage1_out.permute(0,2,3,1).view(batch, grid_size[0], grid_size[0], num_anchors, num_coordinate)
+        stage1_confidence = stage1_out[..., 4:5]
+        stage1_x_center = stage1_out[..., 0:1]
+        stage1_y_center = stage1_out[..., 1:2]
+        stage1_width = stage1_out[..., 2:3]
+        stage1_height = stage1_out[..., 3:4]
+        stage1_class = stage1_out[..., 5:]
+        large_scale_prediction = torch.cat((stage1_x_center, stage1_y_center, stage1_width, stage1_height, stage1_confidence, stage1_class), dim=-1)
+
+        stage2_out = stage2_out.permute(0,2,3,1).view(batch, grid_size[1], grid_size[1], num_anchors, num_coordinate)
+        stage2_confidence = stage2_out[..., 4:5]
+        stage2_x_center = stage2_out[..., 0:1]
+        stage2_y_center = stage2_out[..., 1:2]
+        stage2_width = stage2_out[..., 2:3]
+        stage2_height = stage2_out[..., 3:4]
+        stage2_class = stage2_out[..., 5:]
+        medium_scale_prediction = torch.cat((stage2_x_center, stage2_y_center, stage2_width, stage2_height, stage2_confidence, stage2_class), dim=-1)
+
+        stage3_out = stage3_out.permute(0,2,3,1).view(batch, grid_size[2], grid_size[2], num_anchors, num_coordinate)
+        stage3_confidence = stage3_out[..., 4:5]
+        stage3_x_center = stage3_out[..., 0:1]
+        stage3_y_center = stage3_out[..., 1:2]
+        stage3_width = stage3_out[..., 2:3]
+        stage3_height = stage3_out[..., 3:4]
+        stage3_class = stage3_out[..., 5:]
+        small_scale_prediction = torch.cat((stage3_x_center, stage3_y_center, stage3_width, stage3_height, stage3_confidence, stage3_class), dim=-1)
 
         loss = (
             loss_fn(predictions=large_scale_prediction, labels=label[0], scale="large", device=device)
@@ -142,6 +201,7 @@ def train_function(model:torch.nn.Module,
           loss_fn:torch.nn.Module,
           device:torch.device,
           num_class:int,
+          num_anchor:int,
           grid_size:list):
   results = {
       "train_loss": [],
@@ -158,13 +218,17 @@ def train_function(model:torch.nn.Module,
                             train_dataloader=train_loader,
                             loss_fn=loss_fn,
                             LR=lr,
-                            device=device)
+                            device=device, 
+                            num_cls=num_class, 
+                            num_anchors=num_anchor,
+                            size=grid_size)
     valid_loss, large_map, medium_map, small_map = validation_step(model=model,
                                                                    valid_dataloader=valid_loader,
                                                                    loss_fn=loss_fn,
                                                                    num_class=num_class,
                                                                    grid_size=grid_size,
-                                                                   device=device)
+                                                                   device=device,
+                                                                   num_anchors=num_anchor)
 
     print(
         f"Train_loss: {train_loss} | "
@@ -228,6 +292,7 @@ def main():
       loss_fn=loss_function,
       device=device,
       num_class=num_class,
+      num_anchor=len(anchors_list),
       grid_size=grid_size
   )
   print(f"[INFO] Model training is finished.................!!")
