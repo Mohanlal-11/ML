@@ -22,8 +22,8 @@ classes = ['airplane',
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Arguments required for the resnet inference.')
-    parser.add_argument('--weights', type=str, default='store/resnet18_CIFAR10.pt', help='Path to model weights file (.pth).')
-    parser.add_argument('--images', type=str, default="store/cifar10_imgs", help='path to input images directory')
+    parser.add_argument('--weights', type=str, default='store/weights/resnet18_CIFAR10.pt', help='Path to model weights file (.pth).')
+    parser.add_argument('--images', type=str, default="store/cifar10_images", help='path to input images directory')
 
     args = parser.parse_args()
 

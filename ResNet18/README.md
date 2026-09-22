@@ -23,6 +23,7 @@ python3 train.py --epochs <number of epochs to train the model> --batch_size <ba
 ```
 
 * The weights of each epoch and learning curve will be save in folder named `store`.
+* Also saves few images from test set with same resolution as the model's input which will be used in inference.
 
 ## Model Inference
 * To inference the model on GPU, run following command:
